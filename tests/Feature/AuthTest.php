@@ -13,14 +13,6 @@ class AuthTest extends TestCase
 
     public function test_registration_fails_with_admin_role(): void
     {
-        Role::factory()
-            ->create([
-                'name' => 'Administrator'
-            ]);
-        //$this->seed(RoleSeeder::class);
-
-        //$admin = Role::query()->where('name', '=', 'Administrator')->first();
-
         $response = $this->postJson('/api/v1/auth/register', [
             'name' => 'Valid name',
             'email' => 'valid@email.com',
@@ -34,10 +26,6 @@ class AuthTest extends TestCase
 
     public function test_registration_succeeds_with_owner_role()
     {
-        Role::factory()
-            ->create([
-                'name' => 'Property Owner'
-            ]);
 
         $response = $this->postJson('/api/v1/auth/register', [
             'name' => 'Valid name',
@@ -53,10 +41,6 @@ class AuthTest extends TestCase
 
     public function test_registration_succeeds_with_user_role()
     {
-        Role::factory()
-            ->create([
-                'name' => 'Simple User'
-            ]);
 
         $response = $this->postJson('/api/v1/auth/register', [
             'name' => 'Valid name',
