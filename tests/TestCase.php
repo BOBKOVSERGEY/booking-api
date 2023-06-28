@@ -9,10 +9,10 @@ abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
 
-    /*public function setUp(): void
+    public function setUp(): void
     {
         parent::setUp();
 
-        $this->seed(DatabaseSeeder::class); // THIS IS THE LINE WE NEED
-    }*/
+        $this->seed(); // THIS IS THE LINE WE NEED
+    }
 }

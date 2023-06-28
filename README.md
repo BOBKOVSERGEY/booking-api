@@ -8,3 +8,5 @@ sail artisan migrate:refresh --seed
 1|TOgt5E3JHPwRlQkBfoLBvfDsGA8uhlgiZcmJPwqi
 
 php artisan make:seeder PermissionSeeder
+
+https://laraveldaily.com/lesson/booking-api-laravel/profile-fields
