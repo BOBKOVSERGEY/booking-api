@@ -13,6 +13,7 @@ class AuthTest extends TestCase
 
     public function test_registration_fails_with_admin_role(): void
     {
+
         $response = $this->postJson('/api/v1/auth/register', [
             'name' => 'Valid name',
             'email' => 'valid@email.com',
@@ -26,7 +27,6 @@ class AuthTest extends TestCase
 
     public function test_registration_succeeds_with_owner_role()
     {
-
         $response = $this->postJson('/api/v1/auth/register', [
             'name' => 'Valid name',
             'email' => 'valid@email.com',

@@ -10,3 +10,5 @@ sail artisan migrate:refresh --seed
 php artisan make:seeder PermissionSeeder
 
 https://laraveldaily.com/lesson/booking-api-laravel/profile-fields
+
+Врачи и пациенты
