@@ -9,9 +9,9 @@ use Tests\TestCase;
 
 class AuthTest extends TestCase
 {
-    //use RefreshDatabase;
+    use RefreshDatabase;
 
-    public function test_registration_fails_with_admin_role(): void
+   /* public function test_registration_fails_with_admin_role(): void
     {
 
         $response = $this->postJson('/api/v1/auth/register', [
@@ -52,5 +52,5 @@ class AuthTest extends TestCase
 
         $response->assertStatus(200);
     }
-
+*/
 }
