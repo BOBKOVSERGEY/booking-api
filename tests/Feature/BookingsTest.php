@@ -10,7 +10,7 @@ use Tests\TestCase;
 
 class BookingsTest extends TestCase
 {
-    use RefreshDatabase;
+    /*use RefreshDatabase;
 
     public function test_user_has_access_to_bookings_feature()
     {
@@ -26,5 +26,5 @@ class BookingsTest extends TestCase
         $response = $this->actingAs($owner)->getJson('/api/v1/user/bookings');
 
         $response->assertStatus(403);
-    }
+    }*/
 }

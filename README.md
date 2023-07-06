@@ -11,4 +11,7 @@ php artisan make:seeder PermissionSeeder
 
 https://laraveldaily.com/lesson/booking-api-laravel/profile-fields
 
+# git 
+https://github.com/LaravelDaily/Booking-Com-Simulation-Laravel/
+
 Врачи и пациенты

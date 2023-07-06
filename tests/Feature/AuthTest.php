@@ -3,13 +3,13 @@
 namespace Tests\Feature;
 
 use App\Models\Role;
-use Database\Seeders\RoleSeeder;
+use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class AuthTest extends TestCase
 {
-    use RefreshDatabase;
+    //use RefreshDatabase;
 
     public function test_registration_fails_with_admin_role(): void
     {

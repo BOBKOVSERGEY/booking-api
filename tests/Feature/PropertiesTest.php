@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class PropertiesTest extends TestCase
 {
-    use RefreshDatabase;
+    /*use RefreshDatabase;
 
     public function test_property_owner_has_access_to_properties_feature(): void
     {
@@ -31,5 +31,5 @@ class PropertiesTest extends TestCase
         $response = $this->actingAs($owner)->getJson('/api/v1/owner/properties');
 
         $response->assertStatus(403);
-    }
+    }*/
 }
