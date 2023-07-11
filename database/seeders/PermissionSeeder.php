@@ -2,17 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Permission;
 use App\Models\Role;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
 
 class PermissionSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public function run()
     {
         $allRoles = Role::all()->keyBy('id');
 
@@ -22,10 +19,9 @@ class PermissionSeeder extends Seeder
         ];
 
         foreach ($permissions as $key => $roles) {
-            $permission = Permission::query()
-                                    ->create(['name' => $key]);
+            $permission = Permission::create(['name' => $key]);
             foreach ($roles as $role) {
-                $allRoles[$role]->permissions()->attach($permission->id);
+                $allRoles[$role]->givePermissionTo($permission);
             }
         }
     }

@@ -16,9 +16,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->foreignIdFor(Role::class)->nullable()
+            /*$table->foreignIdFor(Role::class)->nullable()
                 ->constrained()
-                ->nullOnDelete();
+                ->nullOnDelete();*/
             $table->string('display_name')->nullable();
             $table->string('phone_number')->nullable();
             $table->timestamp('phone_verified_at')->nullable();

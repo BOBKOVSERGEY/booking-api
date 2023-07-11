@@ -19,15 +19,16 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Password::defaults()],
-            'role_id' => ['required', Rule::in(Role::ROLE_OWNER, Role::ROLE_USER)],
+            'role' => ['required', Rule::in('Property Owner', 'Simple User')],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role_id' => $request->role_id,
         ]);
+
+        $user->assignRole($request->role);
 
         return response()->json([
             'access_token' => $user->createToken('client')->plainTextToken,
