@@ -6,20 +6,22 @@ use App\Models\City;
 use App\Models\Country;
 use App\Models\Role;
 use App\Models\User;
+use Database\Seeders\PermissionSeeder;
+use Database\Seeders\RoleSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class PropertiesTest extends TestCase
 {
-    //use RefreshDatabase;
+    use RefreshDatabase;
 
-    /*public function test_property_owner_has_access_to_properties_feature(): void
+    public function test_property_owner_has_access_to_properties_feature(): void
     {
 
-        $owner = User::factory()
-            ->create([
-                'role_id' => Role::ROLE_OWNER
-            ]);
+        $this->seed(RoleSeeder::class);
+        $this->seed(PermissionSeeder::class);
+        $owner = User::factory()->create();
+        $owner->assignRole('Property Owner');
 
         $response = $this->actingAs($owner)
             ->getJson('/api/v1/owner/properties');
@@ -29,16 +31,21 @@ class PropertiesTest extends TestCase
 
     public function test_user_does_not_have_access_to_properties_feature()
     {
-        $owner = User::factory()->create(['role_id' => Role::ROLE_USER]);
+        $this->seed(RoleSeeder::class);
+        $this->seed(PermissionSeeder::class);
+        $owner = User::factory()->create();
+        $owner->assignRole('Simple User');
         $response = $this->actingAs($owner)->getJson('/api/v1/owner/properties');
 
         $response->assertStatus(403);
-    }*/
+    }
 
-    /*public function test_property_owner_can_add_property()
+  public function test_property_owner_can_add_property()
     {
-        $role = Role::factory()->create();
-        $owner = User::factory()->create(['role_id' => $role->id]);
+        $this->seed(RoleSeeder::class);
+        $this->seed(PermissionSeeder::class);
+        $owner = User::factory()->create();
+        $owner->assignRole('Property Owner');
         $country = Country::factory()->create(
             [
                 'name' => 'United States',
@@ -64,5 +71,5 @@ class PropertiesTest extends TestCase
 
         $response->assertSuccessful();
         $response->assertJsonFragment(['name' => 'My property']);
-    }*/
+    }
 }

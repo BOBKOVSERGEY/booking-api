@@ -14,8 +14,16 @@ class PermissionSeeder extends Seeder
         $allRoles = Role::all()->keyBy('id');
 
         $permissions = [
-            'properties-manage' => [Role::ROLE_OWNER],
-            'bookings-manage' => [Role::ROLE_USER],
+            'properties-manage' => [
+                Role::query()
+                ->where('name', 'Property Owner')
+                ->value('id')
+            ],
+            'bookings-manage' => [
+                Role::query()
+                    ->where('name', 'Simple User')
+                    ->value('id')
+            ],
         ];
 
         foreach ($permissions as $key => $roles) {
