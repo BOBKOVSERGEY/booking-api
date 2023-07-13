@@ -37,3 +37,6 @@ sail artisan make:observer PropertyObserver --model=Property
 # spatie
 composer require spatie/laravel-permission
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+
+# create factory
+php artisan make:factory PropertyFactory --model=Property
