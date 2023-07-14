@@ -11,12 +11,13 @@ abstract class TestCase extends BaseTestCase
     public string $url = '/api/v1';
     use CreatesApplication;
 
-   /* public function setUp(): void
+   public function setUp(): void
     {
         parent::setUp();
 
-        $this->seed(DatabaseSeeder::class); // THIS IS THE LINE WE NEED
+        //$this->seed(DatabaseSeeder::class); // THIS IS THE LINE WE NEED
     }
+    /*
 
     public function tearDown(): void
     {

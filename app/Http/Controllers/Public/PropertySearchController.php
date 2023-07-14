@@ -12,8 +12,11 @@ class PropertySearchController extends Controller
     {
         //return response()->json(['q'=> $request->city]);
         return Property::with('city')
-            ->when($request->city_id, function ($query) use ($request) {
-                $query->where('city_id', $request->city_id);
+            ->when($request->city, function ($query) use ($request) {
+                $query->where('city_id', $request->city);
+            })
+            ->when($request->country, function($query) use ($request) {
+                $query->whereHas('city', fn($q) => $q->where('country_id', $request->country));
             })
             ->get();
     }
