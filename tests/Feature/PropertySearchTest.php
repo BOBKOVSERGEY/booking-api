@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Apartment;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Geoobject;
@@ -82,7 +83,7 @@ class PropertySearchTest extends TestCase
         $response->assertJsonFragment(['id' => $propertyInCountry->id]);
     }
 
-    public function test_property_search_by_geoobject_returns_correct_results()
+    public function test_property_search_by_geoobject_returns_correct_results(): void
     {
         $this->seed(RoleSeeder::class);
         $this->seed(PermissionSeeder::class);
@@ -131,5 +132,93 @@ class PropertySearchTest extends TestCase
         $response->assertStatus(200);
         $response->assertJsonCount(1);
         $response->assertJsonFragment(['id' => $propertyNear->id]);
+    }
+
+    public function test_property_search_by_capacity_returns_correct_results(): void
+    {
+        $this->seed(RoleSeeder::class);
+        $this->seed(PermissionSeeder::class);
+        $owner = User::factory()->create();
+        $owner->assignRole('Property Owner');
+
+        $country = Country::factory()->create(
+            [
+                'name' => 'United States',
+                'lat' => 37.09024,
+                'long' => -95.712891
+            ]
+        );
+        $city = City::factory()->create(
+            [
+                'country_id' => $country->id,
+                'name' => 'New York',
+                'lat' => 40.712776,
+                'long' => -74.005974,
+            ]
+        );
+
+        $property = Property::factory()->create([
+            'owner_id' => $owner->id,
+            'city_id' => $city->id,
+        ]);
+
+        Apartment::factory()->create([
+            'property_id' => $property->id,
+            //'name' => 'Бунгало',
+            'capacity_adults' => 2,
+            'capacity_children' => 2,
+        ]);
+
+        $response = $this->getJson('/api/search?city=' . $city->id . '&adults=2&children=1');
+        $response->assertStatus(200);
+        $response->assertJsonCount(1);
+        $response->assertJsonFragment(['id' => $property->id]);
+    }
+    public function test_property_search_by_capacity_returns_only_suitable_apartments(): void
+    {
+        $this->seed(RoleSeeder::class);
+        $this->seed(PermissionSeeder::class);
+        $owner = User::factory()->create();
+        $owner->assignRole('Property Owner');
+
+        $country = Country::factory()->create(
+            [
+                'name' => 'United States',
+                'lat' => 37.09024,
+                'long' => -95.712891
+            ]
+        );
+        $city = City::factory()->create(
+            [
+                'country_id' => $country->id,
+                'name' => 'New York',
+                'lat' => 40.712776,
+                'long' => -74.005974,
+            ]
+        );
+
+        $property = Property::factory()->create([
+            'owner_id' => $owner->id,
+            'city_id' => $city->id,
+        ]);
+
+        $smallApartment = Apartment::factory()->create([
+            'name' => 'Small apartment',
+            'property_id' => $property->id,
+            'capacity_adults' => 1,
+            'capacity_children' => 0,
+        ]);
+        $largeApartment = Apartment::factory()->create([
+            'name' => 'Large apartment',
+            'property_id' => $property->id,
+            'capacity_adults' => 3,
+            'capacity_children' => 2,
+        ]);
+
+        $response = $this->getJson('/api/search?city=' . $city->id . '&adults=2&children=1');
+        $response->assertStatus(200);
+        $response->assertJsonCount(1);
+        $response->assertJsonCount(1, '0.apartments');
+        $response->assertJsonPath('0.apartments.0.name', $largeApartment->name);
     }
 }
