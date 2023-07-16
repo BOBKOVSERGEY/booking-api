@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Geoobject;
 use App\Models\Property;
 use App\Models\User;
 use Database\Factories\CityFactory;
@@ -48,6 +49,87 @@ class PropertySearchTest extends TestCase
         $response->assertJsonCount(1);
         $response->assertJsonFragment(['id' => $propertyInCity->id]);
 
+    }
 
+    public function test_property_search_by_country_returns_correct_result()
+    {
+        $this->seed(RoleSeeder::class);
+        $this->seed(PermissionSeeder::class);
+        $owner = User::factory()->create();
+        $owner->assignRole('Property Owner');
+
+        $country = Country::factory()->create(
+            [
+                'name' => 'United States',
+                'lat' => 37.09024,
+                'long' => -95.712891
+            ]
+        );
+        $city = City::factory()->create(
+            [
+                'country_id' => $country->id,
+                'name' => 'New York',
+                'lat' => 40.712776,
+                'long' => -74.005974,
+            ]
+        );
+
+        $propertyInCountry = Property::factory()->create(['owner_id' => $owner->id, 'city_id' => $city->id]);
+        $response = $this->getJson('/api/search?country=' . $country->id);
+
+        $response->assertStatus(200);
+        $response->assertJsonCount(1);
+        $response->assertJsonFragment(['id' => $propertyInCountry->id]);
+    }
+
+    public function test_property_search_by_geoobject_returns_correct_results()
+    {
+        $this->seed(RoleSeeder::class);
+        $this->seed(PermissionSeeder::class);
+        $owner = User::factory()->create();
+        $owner->assignRole('Property Owner');
+        $country = Country::factory()->create(
+            [
+                'name' => 'United States',
+                'lat' => 37.09024,
+                'long' => -95.712891
+            ]
+        );
+        $city = City::factory()->create(
+            [
+                'country_id' => $country->id,
+                'name' => 'New York',
+                'lat' => 40.712776,
+                'long' => -74.005974,
+            ]
+        );
+
+        $geoobject = Geoobject::factory()->create(
+            [
+                'city_id' => $city->id,
+                'name' => 'Statue of Liberty',
+                'lat' => 40.6892470,
+                'long' => -74.0445020,
+            ]
+        );
+
+        $propertyNear = Property::factory()->create([
+            'owner_id' => $owner->id,
+            'city_id' => $city->id,
+            'lat' => $geoobject->lat,
+            'long' => $geoobject->long,
+        ]);
+
+        $propertyFar = Property::factory()->create([
+            'owner_id' => $owner->id,
+            'city_id' => $city->id,
+            'lat' => $geoobject->lat + 10,
+            'long' => $geoobject->long - 10,
+        ]);
+        $response = $this->getJson('/api/search?geoobject=' . $geoobject->id);
+
+        $response->assertStatus(200);
+        $response->assertJsonCount(1);
+        $response->assertJsonFragment(['id' => $propertyNear->id]);
     }
 }
