@@ -1,7 +1,6 @@
 # lesson 
-https://laraveldaily.com/lesson/booking-api-laravel/search-property-by-city
-test_property_search_by_country_returns_correct_results
-
+https://laraveldaily.com/lesson/booking-api-laravel/show-apartment-size-type-and-beds
+Это новые поля, которые теперь отображаются в результатах поиска:
 # create alias
 alias alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 

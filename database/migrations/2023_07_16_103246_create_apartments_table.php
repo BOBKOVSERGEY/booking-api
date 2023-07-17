@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ApartmentType;
 use App\Models\Property;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -18,9 +19,17 @@ return new class extends Migration
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
+            $table->foreignIdFor(ApartmentType::class)
+                ->nullable()
+                ->constrained()
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
+
             $table->string('name');
             $table->unsignedInteger('capacity_adults');
             $table->unsignedInteger('capacity_children');
+            $table->unsignedInteger('size')
+                ->nullable();
             $table->timestamps();
         });
     }
