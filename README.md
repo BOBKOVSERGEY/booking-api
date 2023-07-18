@@ -1,6 +1,5 @@
 # lesson 
-https://laraveldaily.com/lesson/booking-api-laravel/show-apartment-size-type-and-beds
-Это новые поля, которые теперь отображаются в результатах поиска:
+https://laraveldaily.com/lesson/booking-api-laravel/optimize-search-json-api-resources
 # create alias
 alias alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
@@ -40,3 +39,6 @@ php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvid
 
 # create factory
 php artisan make:factory PropertyFactory --model=Property
+
+# add column in table
+php artisan make:migration add_apartment_type_size_to_apartments_table

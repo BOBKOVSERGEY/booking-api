@@ -12,14 +12,19 @@ class PropertySearchController extends Controller
     public function __invoke(Request $request)
     {
         //return response()->json(['q'=> $request->city]);
-        return Property::with('city', 'apartments.apartment_type')
+        return Property::query()
+            ->with([
+                'city',
+                'apartments.apartment_type',
+                'apartments.rooms.beds.bed_type'
+            ])
             ->when($request->city, function ($query) use ($request) {
                 $query->where('city_id', $request->city);
             })
-            ->when($request->country, function($query) use ($request) {
+            ->when($request->country, function ($query) use ($request) {
                 $query->whereHas('city', fn($q) => $q->where('country_id', $request->country));
             })
-            ->when($request->geoobject, function($query) use ($request) {
+            ->when($request->geoobject, function ($query) use ($request) {
                 $geoobject = Geoobject::find($request->geoobject);
                 if ($geoobject) {
                     $condition = "(
