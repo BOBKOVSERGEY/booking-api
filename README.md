@@ -1,5 +1,6 @@
 # lesson 
 https://laraveldaily.com/lesson/booking-api-laravel/optimize-search-json-api-resources
+Тест характеристик постельного белья
 # create alias
 alias alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 

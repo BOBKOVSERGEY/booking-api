@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PropertySearchResource;
 use App\Models\Geoobject;
 use App\Models\Property;
 use Illuminate\Http\Request;
@@ -12,7 +13,7 @@ class PropertySearchController extends Controller
     public function __invoke(Request $request)
     {
         //return response()->json(['q'=> $request->city]);
-        return Property::query()
+        $properties = Property::query()
             ->with([
                 'city',
                 'apartments.apartment_type',
@@ -45,5 +46,7 @@ class PropertySearchController extends Controller
                 });
             })
             ->get();
+
+        return PropertySearchResource::collection($properties);
     }
 }
