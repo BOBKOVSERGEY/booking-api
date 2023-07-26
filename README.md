@@ -1,5 +1,6 @@
 # lesson 
 https://laraveldaily.com/lesson/booking-api-laravel/facility-structure-show-property-details
+Ура, мы видим список объектов!
 # create alias
 alias alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
@@ -42,3 +43,6 @@ php artisan make:factory PropertyFactory --model=Property
 
 # add column in table
 php artisan make:migration add_apartment_type_size_to_apartments_table
+
+# миграция многои ко многим
+php artisan make:migration create_apartment_facility_table

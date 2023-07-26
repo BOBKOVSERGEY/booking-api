@@ -22,6 +22,8 @@ Route::prefix('v1')
 });
 
 Route::get('search', PropertySearchController::class);
+Route::get('properties/{property}',
+    \App\Http\Controllers\Public\PropertyController::class);
 
 Route::prefix('v1')
     ->group(function () {
