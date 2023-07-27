@@ -1,6 +1,5 @@
 # lesson 
-https://laraveldaily.com/lesson/booking-api-laravel/facility-structure-show-property-details
-Ура, мы видим список объектов!
+https://laraveldaily.com/lesson/booking-api-laravel/filter-properties-most-popular-facilities
 # create alias
 alias alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 

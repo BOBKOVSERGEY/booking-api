@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\Owner\PropertyController;
 use App\Http\Controllers\Api\V1\User\BookingController;
+use App\Http\Controllers\Public\ApartmentController;
 use App\Http\Controllers\Public\PropertySearchController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,8 @@ Route::prefix('v1')
 Route::get('search', PropertySearchController::class);
 Route::get('properties/{property}',
     \App\Http\Controllers\Public\PropertyController::class);
+Route::get('apartments/{apartment}',
+    ApartmentController::class);
 
 Route::prefix('v1')
     ->group(function () {
