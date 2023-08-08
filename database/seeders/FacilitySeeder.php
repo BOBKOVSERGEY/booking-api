@@ -13,7 +13,7 @@ class FacilitySeeder extends Seeder
      */
     public function run(): void
     {
-        Facility::create(['category_id' => 1, 'name' => 'Linen']);
+        /*Facility::create(['category_id' => 1, 'name' => 'Linen']);
         Facility::create(['category_id' => 1, 'name' => 'Wardrobe or closet']);
         Facility::create(['category_id' => 2, 'name' => 'Electric kettle']);
         Facility::create(['category_id' => 2, 'name' => 'Microwave']);
@@ -25,6 +25,12 @@ class FacilitySeeder extends Seeder
         Facility::create(['category_id' => 5, 'name' => 'No smoking']);
         Facility::create(['category_id' => 5, 'name' => 'Fan']);
         Facility::create(['category_id' => 6, 'name' => 'WiFi']);
-        Facility::create(['category_id' => 6, 'name' => 'TV']);
+        Facility::create(['category_id' => 6, 'name' => 'TV']);*/
+
+        Facility::create(['name' => 'Family rooms']);
+        Facility::create(['name' => 'Free WiFi']);
+        Facility::create(['name' => 'Parking']);
+        Facility::create(['name' => 'Pets allowed']);
+        Facility::create(['name' => 'Swimming pool']);
     }
 }

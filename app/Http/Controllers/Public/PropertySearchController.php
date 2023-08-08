@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PropertySearchResource;
+use App\Models\Facility;
 use App\Models\Geoobject;
 use App\Models\Property;
 use Illuminate\Http\Request;
@@ -17,7 +18,8 @@ class PropertySearchController extends Controller
             ->with([
                 'city',
                 'apartments.apartment_type',
-                'apartments.rooms.beds.bed_type'
+                'apartments.rooms.beds.bed_type',
+                'facilities',
             ])
             ->when($request->city, function ($query) use ($request) {
                 $query->where('city_id', $request->city);
@@ -50,6 +52,26 @@ class PropertySearchController extends Controller
             })
             ->get();
 
-        return PropertySearchResource::collection($properties);
+        $allFacilities = $properties->pluck('facilities')->flatten();
+
+        $facilities = $allFacilities->unique('name')
+            ->mapWithKeys(function ($facility) use ($allFacilities) {
+                return [$facility->name => $allFacilities->where('name', $facility->name)->count()];
+            })
+            ->sortDesc();
+
+        /*$facilities = Facility::query()
+            ->withCount(['properties' => function ($property) use ($properties) {
+                $property->whereIn('id', $properties->pluck('id'));
+            }])
+            ->get()
+            ->where('properties_count', '>', 0)
+            ->sortByDesc('properties_count')
+            ->pluck('properties_count', 'name');*/
+
+        return [
+            'properties' => PropertySearchResource::collection($properties),
+            'facilities' => $facilities,
+        ];
     }
 }
