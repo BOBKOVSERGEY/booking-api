@@ -1,5 +1,7 @@
 # lesson 
-https://laraveldaily.com/lesson/booking-api-laravel/filter-properties-most-popular-facilities
+error https://laraveldaily.com/lesson/booking-api-laravel/filter-properties-most-popular-facilities
+
+https://laraveldaily.com/lesson/booking-api-laravel/property-photos-upload-show
 # create alias
 alias alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 

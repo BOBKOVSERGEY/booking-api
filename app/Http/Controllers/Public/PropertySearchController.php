@@ -50,6 +50,11 @@ class PropertySearchController extends Controller
                         ->take(1);
                 });
             })
+            ->when($request->facilities, function($query) use ($request) {
+                $query->whereHas('facilities', function($query) use ($request) {
+                    $query->whereIn('facilities.id', $request->facilities);
+                });
+            })
             ->get();
 
         $allFacilities = $properties->pluck('facilities')->flatten();
@@ -60,6 +65,7 @@ class PropertySearchController extends Controller
             })
             ->sortDesc();
 
+
         /*$facilities = Facility::query()
             ->withCount(['properties' => function ($property) use ($properties) {
                 $property->whereIn('id', $properties->pluck('id'));
@@ -68,6 +74,9 @@ class PropertySearchController extends Controller
             ->where('properties_count', '>', 0)
             ->sortByDesc('properties_count')
             ->pluck('properties_count', 'name');*/
+
+
+
 
         return [
             'properties' => PropertySearchResource::collection($properties),
