@@ -47,3 +47,16 @@ php artisan make:migration add_apartment_type_size_to_apartments_table
 
 # миграция многои ко многим
 php artisan make:migration create_apartment_facility_table
+
+#eloquent-eager-limit
+https://github.com/staudenmeir/eloquent-eager-limit
+
+
+# laravel-medialibrary
+
+https://github.com/spatie/laravel-medialibrary
+
+composer require "spatie/laravel-medialibrary:^10.0.0"
+php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"
+php artisan migrate
+php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="config"

@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class PropertySearchController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): array
     {
         //return response()->json(['q'=> $request->city]);
         $properties = Property::query()

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\Owner\PropertyController;
 use App\Http\Controllers\Api\V1\User\BookingController;
+use App\Http\Controllers\Owner\PropertyPhotoController;
 use App\Http\Controllers\Public\ApartmentController;
 use App\Http\Controllers\Public\PropertySearchController;
 use Illuminate\Http\Request;
@@ -20,6 +21,8 @@ Route::prefix('v1')
         Route::prefix('user')->group(function () {
             Route::get('bookings', [BookingController::class, 'index']);
         });
+
+        Route::post('properties/{property}/photos', [PropertyPhotoController::class, 'store']);
 });
 
 Route::get('search', PropertySearchController::class);
