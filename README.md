@@ -1,7 +1,7 @@
 # lesson 
 error https://laraveldaily.com/lesson/booking-api-laravel/filter-properties-most-popular-facilities
 
-https://laraveldaily.com/lesson/booking-api-laravel/property-photos-upload-show
+https://laraveldaily.com/lesson/booking-api-laravel/apartment-prices-per-calendar-days
 # create alias
 alias alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
@@ -55,6 +55,8 @@ https://github.com/staudenmeir/eloquent-eager-limit
 # laravel-medialibrary
 
 https://github.com/spatie/laravel-medialibrary
+
+# change position https://spatie.be/docs/laravel-medialibrary/v10/advanced-usage/ordering-media
 
 composer require "spatie/laravel-medialibrary:^10.0.0"
 php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"

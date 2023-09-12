@@ -16,6 +16,8 @@ Route::prefix('v1')
         Route::prefix('owner')->group(function () {
             Route::get('properties', [PropertyController::class, 'index']);
             Route::post('properties', [PropertyController::class, 'store']);
+            Route::post('properties/{property}/photos/{photo}/reorder/{newPosition}',
+                [PropertyPhotoController::class, 'reorder']);
         });
 
         Route::prefix('user')->group(function () {
