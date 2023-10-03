@@ -2,11 +2,10 @@
 
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\Owner\PropertyController;
-use App\Http\Controllers\Api\V1\User\BookingController;
 use App\Http\Controllers\Owner\PropertyPhotoController;
 use App\Http\Controllers\Public\ApartmentController;
 use App\Http\Controllers\Public\PropertySearchController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\User\BookingController;
 use Illuminate\Support\Facades\Route;
 
 
