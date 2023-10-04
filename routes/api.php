@@ -24,6 +24,10 @@ Route::prefix('v1')
         });
 
         Route::post('properties/{property}/photos', [PropertyPhotoController::class, 'store']);
+
+        Route::prefix('user')->group(function () {
+            Route::resource('bookings', BookingController::class);
+        });
 });
 
 Route::get('search', PropertySearchController::class);
@@ -36,3 +40,5 @@ Route::prefix('v1')
     ->group(function () {
         Route::post('auth/register', RegisterController::class);
     });
+
+
