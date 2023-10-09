@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ApartmentAvailableRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
@@ -22,7 +23,8 @@ class StoreBookingRequest extends FormRequest
             'apartment_id' =>
                 [
                     'required',
-                    'exists:apartments,id'
+                    'exists:apartments,id',
+                    new ApartmentAvailableRule()
                 ],
             'start_date' => [
                 'required',
