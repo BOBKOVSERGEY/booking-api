@@ -21,7 +21,9 @@ class Booking extends Model
         'end_date',
         'guests_adults',
         'guests_children',
-        'total_price'
+        'total_price',
+        'rating',
+        'review_comment',
     ];
 
     public function apartment(): BelongsTo
