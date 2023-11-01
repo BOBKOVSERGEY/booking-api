@@ -1,7 +1,7 @@
 # lesson 
 error https://laraveldaily.com/lesson/booking-api-laravel/filter-properties-most-popular-facilities
 
-https://laraveldaily.com/lesson/booking-api-laravel/search-results-pagination
+https://laraveldaily.com/lesson/booking-api-laravel/generate-api-documentation-with-scribe
 
 # create alias
 alias alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
@@ -63,3 +63,7 @@ composer require "spatie/laravel-medialibrary:^10.0.0"
 php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"
 php artisan migrate
 php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="config"
+
+# Api documentation
+composer require --dev knuckleswtf/scribe
+php artisan vendor:publish --tag=scribe-config

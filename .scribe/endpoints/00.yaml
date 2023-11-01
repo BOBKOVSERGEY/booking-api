@@ -1,0 +1,679 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/owner/properties
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/owner/properties
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: ipsam
+        type: string
+        enumValues: []
+        custom: []
+      city_id:
+        name: city_id
+        description: ''
+        required: true
+        example: impedit
+        type: string
+        enumValues: []
+        custom: []
+      address_street:
+        name: address_street
+        description: ''
+        required: true
+        example: explicabo
+        type: string
+        enumValues: []
+        custom: []
+      address_postcode:
+        name: address_postcode
+        description: ''
+        required: true
+        example: id
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      name: ipsam
+      city_id: impedit
+      address_street: explicabo
+      address_postcode: id
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/owner/properties/{property_id}/photos/{photo_id}/reorder/{newPosition}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      property_id:
+        name: property_id
+        description: 'The ID of the property.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        custom: []
+      photo_id:
+        name: photo_id
+        description: 'The ID of the photo.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        custom: []
+      newPosition:
+        name: newPosition
+        description: ''
+        required: true
+        example: pariatur
+        type: string
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      property_id: 1
+      photo_id: 1
+      newPosition: pariatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/user/bookings
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/properties/{property_id}/photos'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      property_id:
+        name: property_id
+        description: 'The ID of the property.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      property_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      photo:
+        name: photo
+        description: 'Must be an image. Must not be greater than 5000 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        custom: []
+    cleanBodyParameters: []
+    fileParameters:
+      photo: null
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/user/bookings
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      apartment_id:
+        name: apartment_id
+        description: ''
+        required: true
+        example: voluptatum
+        type: string
+        enumValues: []
+        custom: []
+      start_date:
+        name: start_date
+        description: 'Must be a valid date.'
+        required: true
+        example: '2023-11-01T06:16:54'
+        type: string
+        enumValues: []
+        custom: []
+      end_date:
+        name: end_date
+        description: 'Must be a valid date.'
+        required: true
+        example: '2023-11-01T06:16:54'
+        type: string
+        enumValues: []
+        custom: []
+      guests_adults:
+        name: guests_adults
+        description: ''
+        required: false
+        example: 12
+        type: integer
+        enumValues: []
+        custom: []
+      guests_children:
+        name: guests_children
+        description: ''
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      apartment_id: voluptatum
+      start_date: '2023-11-01T06:16:54'
+      end_date: '2023-11-01T06:16:54'
+      guests_adults: 12
+      guests_children: 10
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/user/bookings/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the booking.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/user/bookings/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the booking.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      rating:
+        name: rating
+        description: 'Must be between 1 and 10.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        custom: []
+      review_comment:
+        name: review_comment
+        description: 'Must be at least 20 characters.'
+        required: false
+        example: biniktvnivwmbonfxcqpvjjrjlnqkpliscjyjbvjbkwukxw
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      rating: 1
+      review_comment: biniktvnivwmbonfxcqpvjjrjlnqkpliscjyjbvjbkwukxw
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/user/bookings/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the booking.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/search
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"properties":[{"id":1,"name":"Central Hotel","address":"16-18, Argyle Street, Camden, WC1H 8EG, New York","lat":"51.5454736","long":"-0.1627902","apartments":[{"name":"\u0411\u0443\u043d\u0433\u0430\u043b\u043e","type":"Private suite","size":34,"beds_list":"2 beds (1 Large double bed, 1 Extra large double bed)","bathrooms":0,"price":90},{"name":"Large appartment","type":"Entire studio","size":100,"beds_list":"","bathrooms":0,"price":0},{"name":"Small","type":"Entire apartment","size":22,"beds_list":"","bathrooms":0,"price":0}],"photos":["http:\/\/localhost\/storage\/1\/conversions\/photo_2023-08-23_16-20-29-thumbnail.jpg","http:\/\/localhost\/storage\/2\/conversions\/photo_2023-08-23_16-20-29-thumbnail.jpg","http:\/\/localhost\/storage\/3\/conversions\/photo_2023-08-23_16-20-29-thumbnail.jpg","http:\/\/localhost\/storage\/4\/conversions\/photo_2023-08-23_16-20-29-thumbnail.jpg","http:\/\/localhost\/storage\/7\/conversions\/photo_2023-08-23_16-20-29-thumbnail.jpg","http:\/\/localhost\/storage\/5\/conversions\/photo_2023-08-23_16-20-29-thumbnail.jpg","http:\/\/localhost\/storage\/6\/conversions\/photo_2023-08-23_16-20-29-thumbnail.jpg"],"avg_rating":"10.0000"},{"id":2,"name":"Central Hotel  2","address":"16-18, Argyle Street, Camden, WC1H 8EG, New York","lat":"51.5454736","long":"-0.1627902","apartments":[],"photos":[],"avg_rating":null},{"id":3,"name":"Central Hotel  3","address":"16-18, Argyle Street, Camden, WC1H 8EG, New York","lat":"51.5454736","long":"-0.1627902","apartments":[],"photos":[],"avg_rating":null}],"facilities":{"Parking":1}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/properties/{property_id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      property_id:
+        name: property_id
+        description: 'The ID of the property.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      property_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":1,"name":"Central Hotel","address":"16-18, Argyle Street, Camden, WC1H 8EG, New York","lat":"51.5454736","long":"-0.1627902","apartments":[{"name":"\u0411\u0443\u043d\u0433\u0430\u043b\u043e","type":"Private suite","size":34,"beds_list":"2 beds (1 Large double bed, 1 Extra large double bed)","bathrooms":0,"facilities":[],"price":90},{"name":"Large appartment","type":"Entire studio","size":100,"beds_list":"","bathrooms":0,"facilities":[],"price":0},{"name":"Small","type":"Entire apartment","size":22,"beds_list":"","bathrooms":0,"facilities":[{"name":"WiFi"},{"name":"Fan"},{"name":"TV"}],"price":0}],"photos":["http:\/\/localhost\/storage\/1\/conversions\/photo_2023-08-23_16-20-29-thumbnail.jpg","http:\/\/localhost\/storage\/2\/conversions\/photo_2023-08-23_16-20-29-thumbnail.jpg","http:\/\/localhost\/storage\/3\/conversions\/photo_2023-08-23_16-20-29-thumbnail.jpg","http:\/\/localhost\/storage\/4\/conversions\/photo_2023-08-23_16-20-29-thumbnail.jpg","http:\/\/localhost\/storage\/5\/conversions\/photo_2023-08-23_16-20-29-thumbnail.jpg","http:\/\/localhost\/storage\/6\/conversions\/photo_2023-08-23_16-20-29-thumbnail.jpg","http:\/\/localhost\/storage\/7\/conversions\/photo_2023-08-23_16-20-29-thumbnail.jpg"],"avg_rating":null}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '58'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/apartments/{apartment_id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      apartment_id:
+        name: apartment_id
+        description: 'The ID of the apartment.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      apartment_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"name":"\u0411\u0443\u043d\u0433\u0430\u043b\u043e","type":"Private suite","size":34,"beds_list":"2 beds (1 Large double bed, 1 Extra large double bed)","bathrooms":0,"facility_categories":[]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '57'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/auth/register
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: btivoxpwdrulljgc
+        type: string
+        enumValues: []
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: kamille.brakus@example.com
+        type: string
+        enumValues: []
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: quis
+        type: string
+        enumValues: []
+        custom: []
+      role:
+        name: role
+        description: ''
+        required: true
+        example: nostrum
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      name: btivoxpwdrulljgc
+      email: kamille.brakus@example.com
+      password: quis
+      role: nostrum
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

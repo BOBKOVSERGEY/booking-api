@@ -1,0 +1,729 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/v1/owner/properties:
+    get:
+      summary: ''
+      operationId: getApiV1OwnerProperties
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiV1OwnerProperties
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: ipsam
+                city_id:
+                  type: string
+                  description: ''
+                  example: impedit
+                address_street:
+                  type: string
+                  description: ''
+                  example: explicabo
+                address_postcode:
+                  type: string
+                  description: ''
+                  example: id
+              required:
+                - name
+                - city_id
+                - address_street
+                - address_postcode
+      security: []
+  '/api/v1/owner/properties/{property_id}/photos/{photo_id}/reorder/{newPosition}':
+    post:
+      summary: ''
+      operationId: postApiV1OwnerPropertiesProperty_idPhotosPhoto_idReorderNewPosition
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: property_id
+        description: 'The ID of the property.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: photo_id
+        description: 'The ID of the photo.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: newPosition
+        description: ''
+        example: pariatur
+        required: true
+        schema:
+          type: string
+  /api/v1/user/bookings:
+    get:
+      summary: ''
+      operationId: getApiV1UserBookings
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiV1UserBookings
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                apartment_id:
+                  type: string
+                  description: ''
+                  example: voluptatum
+                start_date:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-11-01T06:16:54'
+                end_date:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-11-01T06:16:54'
+                guests_adults:
+                  type: integer
+                  description: ''
+                  example: 12
+                guests_children:
+                  type: integer
+                  description: ''
+                  example: 10
+              required:
+                - apartment_id
+                - start_date
+                - end_date
+      security: []
+  '/api/v1/properties/{property_id}/photos':
+    post:
+      summary: ''
+      operationId: postApiV1PropertiesProperty_idPhotos
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                photo:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 5000 kilobytes.'
+      security: []
+    parameters:
+      -
+        in: path
+        name: property_id
+        description: 'The ID of the property.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/user/bookings/{id}':
+    get:
+      summary: ''
+      operationId: getApiV1UserBookingsId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1UserBookingsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                rating:
+                  type: integer
+                  description: 'Must be between 1 and 10.'
+                  example: 1
+                review_comment:
+                  type: string
+                  description: 'Must be at least 20 characters.'
+                  example: biniktvnivwmbonfxcqpvjjrjlnqkpliscjyjbvjbkwukxw
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiV1UserBookingsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the booking.'
+        example: 2
+        required: true
+        schema:
+          type: integer
+  /api/search:
+    get:
+      summary: ''
+      operationId: getApiSearch
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  properties:
+                    -
+                      id: 1
+                      name: 'Central Hotel'
+                      address: '16-18, Argyle Street, Camden, WC1H 8EG, New York'
+                      lat: '51.5454736'
+                      long: '-0.1627902'
+                      apartments:
+                        -
+                          name: Бунгало
+                          type: 'Private suite'
+                          size: 34
+                          beds_list: '2 beds (1 Large double bed, 1 Extra large double bed)'
+                          bathrooms: 0
+                          price: 90
+                        -
+                          name: 'Large appartment'
+                          type: 'Entire studio'
+                          size: 100
+                          beds_list: ''
+                          bathrooms: 0
+                          price: 0
+                        -
+                          name: Small
+                          type: 'Entire apartment'
+                          size: 22
+                          beds_list: ''
+                          bathrooms: 0
+                          price: 0
+                      photos:
+                        - 'http://localhost/storage/1/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                        - 'http://localhost/storage/2/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                        - 'http://localhost/storage/3/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                        - 'http://localhost/storage/4/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                        - 'http://localhost/storage/7/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                        - 'http://localhost/storage/5/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                        - 'http://localhost/storage/6/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                      avg_rating: '10.0000'
+                    -
+                      id: 2
+                      name: 'Central Hotel  2'
+                      address: '16-18, Argyle Street, Camden, WC1H 8EG, New York'
+                      lat: '51.5454736'
+                      long: '-0.1627902'
+                      apartments: []
+                      photos: []
+                      avg_rating: null
+                    -
+                      id: 3
+                      name: 'Central Hotel  3'
+                      address: '16-18, Argyle Street, Camden, WC1H 8EG, New York'
+                      lat: '51.5454736'
+                      long: '-0.1627902'
+                      apartments: []
+                      photos: []
+                      avg_rating: null
+                  facilities:
+                    Parking: 1
+                properties:
+                  properties:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: 'Central Hotel'
+                        address: '16-18, Argyle Street, Camden, WC1H 8EG, New York'
+                        lat: '51.5454736'
+                        long: '-0.1627902'
+                        apartments:
+                          -
+                            name: Бунгало
+                            type: 'Private suite'
+                            size: 34
+                            beds_list: '2 beds (1 Large double bed, 1 Extra large double bed)'
+                            bathrooms: 0
+                            price: 90
+                          -
+                            name: 'Large appartment'
+                            type: 'Entire studio'
+                            size: 100
+                            beds_list: ''
+                            bathrooms: 0
+                            price: 0
+                          -
+                            name: Small
+                            type: 'Entire apartment'
+                            size: 22
+                            beds_list: ''
+                            bathrooms: 0
+                            price: 0
+                        photos:
+                          - 'http://localhost/storage/1/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                          - 'http://localhost/storage/2/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                          - 'http://localhost/storage/3/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                          - 'http://localhost/storage/4/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                          - 'http://localhost/storage/7/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                          - 'http://localhost/storage/5/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                          - 'http://localhost/storage/6/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                        avg_rating: '10.0000'
+                      -
+                        id: 2
+                        name: 'Central Hotel  2'
+                        address: '16-18, Argyle Street, Camden, WC1H 8EG, New York'
+                        lat: '51.5454736'
+                        long: '-0.1627902'
+                        apartments: []
+                        photos: []
+                        avg_rating: null
+                      -
+                        id: 3
+                        name: 'Central Hotel  3'
+                        address: '16-18, Argyle Street, Camden, WC1H 8EG, New York'
+                        lat: '51.5454736'
+                        long: '-0.1627902'
+                        apartments: []
+                        photos: []
+                        avg_rating: null
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: 'Central Hotel'
+                        address:
+                          type: string
+                          example: '16-18, Argyle Street, Camden, WC1H 8EG, New York'
+                        lat:
+                          type: string
+                          example: '51.5454736'
+                        long:
+                          type: string
+                          example: '-0.1627902'
+                        apartments:
+                          type: array
+                          example:
+                            -
+                              name: Бунгало
+                              type: 'Private suite'
+                              size: 34
+                              beds_list: '2 beds (1 Large double bed, 1 Extra large double bed)'
+                              bathrooms: 0
+                              price: 90
+                            -
+                              name: 'Large appartment'
+                              type: 'Entire studio'
+                              size: 100
+                              beds_list: ''
+                              bathrooms: 0
+                              price: 0
+                            -
+                              name: Small
+                              type: 'Entire apartment'
+                              size: 22
+                              beds_list: ''
+                              bathrooms: 0
+                              price: 0
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                example: Бунгало
+                              type:
+                                type: string
+                                example: 'Private suite'
+                              size:
+                                type: integer
+                                example: 34
+                              beds_list:
+                                type: string
+                                example: '2 beds (1 Large double bed, 1 Extra large double bed)'
+                              bathrooms:
+                                type: integer
+                                example: 0
+                              price:
+                                type: integer
+                                example: 90
+                        photos:
+                          type: array
+                          example:
+                            - 'http://localhost/storage/1/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                            - 'http://localhost/storage/2/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                            - 'http://localhost/storage/3/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                            - 'http://localhost/storage/4/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                            - 'http://localhost/storage/7/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                            - 'http://localhost/storage/5/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                            - 'http://localhost/storage/6/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                          items:
+                            type: string
+                        avg_rating:
+                          type: string
+                          example: '10.0000'
+                  facilities:
+                    type: object
+                    properties:
+                      Parking:
+                        type: integer
+                        example: 1
+      tags:
+        - Endpoints
+      security: []
+  '/api/properties/{property_id}':
+    get:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: 'Central Hotel'
+                  address: '16-18, Argyle Street, Camden, WC1H 8EG, New York'
+                  lat: '51.5454736'
+                  long: '-0.1627902'
+                  apartments:
+                    -
+                      name: Бунгало
+                      type: 'Private suite'
+                      size: 34
+                      beds_list: '2 beds (1 Large double bed, 1 Extra large double bed)'
+                      bathrooms: 0
+                      facilities: []
+                      price: 90
+                    -
+                      name: 'Large appartment'
+                      type: 'Entire studio'
+                      size: 100
+                      beds_list: ''
+                      bathrooms: 0
+                      facilities: []
+                      price: 0
+                    -
+                      name: Small
+                      type: 'Entire apartment'
+                      size: 22
+                      beds_list: ''
+                      bathrooms: 0
+                      facilities:
+                        -
+                          name: WiFi
+                        -
+                          name: Fan
+                        -
+                          name: TV
+                      price: 0
+                  photos:
+                    - 'http://localhost/storage/1/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                    - 'http://localhost/storage/2/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                    - 'http://localhost/storage/3/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                    - 'http://localhost/storage/4/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                    - 'http://localhost/storage/5/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                    - 'http://localhost/storage/6/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                    - 'http://localhost/storage/7/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                  avg_rating: null
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: 'Central Hotel'
+                  address:
+                    type: string
+                    example: '16-18, Argyle Street, Camden, WC1H 8EG, New York'
+                  lat:
+                    type: string
+                    example: '51.5454736'
+                  long:
+                    type: string
+                    example: '-0.1627902'
+                  apartments:
+                    type: array
+                    example:
+                      -
+                        name: Бунгало
+                        type: 'Private suite'
+                        size: 34
+                        beds_list: '2 beds (1 Large double bed, 1 Extra large double bed)'
+                        bathrooms: 0
+                        facilities: []
+                        price: 90
+                      -
+                        name: 'Large appartment'
+                        type: 'Entire studio'
+                        size: 100
+                        beds_list: ''
+                        bathrooms: 0
+                        facilities: []
+                        price: 0
+                      -
+                        name: Small
+                        type: 'Entire apartment'
+                        size: 22
+                        beds_list: ''
+                        bathrooms: 0
+                        facilities:
+                          -
+                            name: WiFi
+                          -
+                            name: Fan
+                          -
+                            name: TV
+                        price: 0
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: Бунгало
+                        type:
+                          type: string
+                          example: 'Private suite'
+                        size:
+                          type: integer
+                          example: 34
+                        beds_list:
+                          type: string
+                          example: '2 beds (1 Large double bed, 1 Extra large double bed)'
+                        bathrooms:
+                          type: integer
+                          example: 0
+                        facilities:
+                          type: array
+                          example: []
+                        price:
+                          type: integer
+                          example: 90
+                  photos:
+                    type: array
+                    example:
+                      - 'http://localhost/storage/1/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                      - 'http://localhost/storage/2/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                      - 'http://localhost/storage/3/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                      - 'http://localhost/storage/4/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                      - 'http://localhost/storage/5/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                      - 'http://localhost/storage/6/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                      - 'http://localhost/storage/7/conversions/photo_2023-08-23_16-20-29-thumbnail.jpg'
+                    items:
+                      type: string
+                  avg_rating:
+                    type: string
+                    example: null
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: property_id
+        description: 'The ID of the property.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/apartments/{apartment_id}':
+    get:
+      summary: ''
+      operationId: getApiApartmentsApartment_id
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  name: Бунгало
+                  type: 'Private suite'
+                  size: 34
+                  beds_list: '2 beds (1 Large double bed, 1 Extra large double bed)'
+                  bathrooms: 0
+                  facility_categories: []
+                properties:
+                  name:
+                    type: string
+                    example: Бунгало
+                  type:
+                    type: string
+                    example: 'Private suite'
+                  size:
+                    type: integer
+                    example: 34
+                  beds_list:
+                    type: string
+                    example: '2 beds (1 Large double bed, 1 Extra large double bed)'
+                  bathrooms:
+                    type: integer
+                    example: 0
+                  facility_categories:
+                    type: array
+                    example: []
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: apartment_id
+        description: 'The ID of the apartment.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/auth/register:
+    post:
+      summary: ''
+      operationId: postApiV1AuthRegister
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: btivoxpwdrulljgc
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: kamille.brakus@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: quis
+                role:
+                  type: string
+                  description: ''
+                  example: nostrum
+              required:
+                - name
+                - email
+                - password
+                - role
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''
